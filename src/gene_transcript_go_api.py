@@ -252,9 +252,9 @@ class Transcript:
     def get_go_term_id(self, namespace :str = 'all', threesold : float = 0) -> list[str]:
         """Return a list of ids of the GO term assigned to this transcript."""
         if namespace == 'all':
-            return [go.id for go in self.gos if go.ppv is None or go.ppv > threesold]
+            return [go.id for go in self.gos if go.ppv is not None and go.ppv > threesold]
         else:
-            return [go.id for go in self.gos if (go.ppv is None or (go.ppv > threesold and go.namespace == namespace))]
+            return [go.id for go in self.gos if (go.ppv is not None and (go.ppv > threesold and go.namespace == namespace))]
 
     # Setters
         
