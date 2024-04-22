@@ -351,6 +351,8 @@ def parse_input(path, name = 'undefined_name'):
             gene_id = line[0]
             transcript_id = line[1]
             gos = line[2].strip().split(';')
+            if gos == ['']:
+                gos = []
             if gene_id not in annotation.genes:
                 gene = Gene(gene_id)
                 annotation.add_gene(gene)
