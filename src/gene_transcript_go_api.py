@@ -356,7 +356,7 @@ def parse_input(path, name = 'undefined_name'):
                 annotation.add_gene(gene)
             transcript = Transcript(transcript_id)
             annotation.add_transcript(gene_id, transcript)
-            annotation[gene_id][transcript_id].add_gos([GO(go_id, id_to_ns[id]) for go_id in gos])
+            annotation[gene_id][transcript_id].add_gos([GO(go_id, id_to_ns[go_id]) for go_id in gos])
 
     return annotation
 
