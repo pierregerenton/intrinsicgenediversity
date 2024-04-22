@@ -252,9 +252,9 @@ class Transcript:
     def get_go_term_id(self, namespace :str = 'all', threesold : float = 0) -> list[str]:
         """Return a list of ids of the GO term assigned to this transcript."""
         if namespace == 'all':
-            return [go.id for go in self.gos if go.ppv > threesold]
+            return [go.id for go in self.gos if go.ppv is None or go.ppv > threesold]
         else:
-            return [go.id for go in self.gos if (go.ppv > threesold and go.namespace == namespace)]
+            return [go.id for go in self.gos if (go.ppv is None or (go.ppv > threesold and go.namespace == namespace))]
 
     # Setters
         
@@ -289,10 +289,10 @@ class Transcript:
 class Feature:
     """Represent a feature."""
 
-    def __init__(self, id, desc, ppv) -> None:
+    def __init__(self, id, desc = None, ppv = None) -> None:
         self.id = id
         self.desc = desc
-        self.ppv = float(ppv)
+        self.ppv = float(ppv) if ppv is not None else ppv
 
     def __str__(self):
         return self.id
@@ -302,7 +302,7 @@ class Feature:
 
 class GO(Feature):
 
-    def __init__(self, id, desc, ppv, namespace) -> None:
+    def __init__(self, id, namespace, desc = None, ppv = None, ) -> None:
         """namespace is BP, MF, CC"""
         self.namespace = namespace
         super().__init__(id, desc, ppv)
@@ -340,6 +340,10 @@ def parse_input(path, name = 'undefined_name'):
     """
     Return an Annotation object from an input
     """
+
+    go_graph = read_go_graph()
+    acronym = {'cellular_component' : 'CC', 'biological_process' : 'BP', 'molecular_function' : 'MF'}
+    id_to_ns = {id_: acronym[data.get('namespace')] for id_, data in go_graph.nodes(data=True)}
     annotation = Annotation(name)
     with open(path) as file:
         for line in file:
@@ -352,7 +356,7 @@ def parse_input(path, name = 'undefined_name'):
                 annotation.add_gene(gene)
             transcript = Transcript(transcript_id)
             annotation.add_transcript(gene_id, transcript)
-            annotation[gene_id][transcript_id].add_gos(gos)
+            annotation[gene_id][transcript_id].add_gos([GO(go_id, id_to_ns[id]) for go_id in gos])
 
     return annotation
 
