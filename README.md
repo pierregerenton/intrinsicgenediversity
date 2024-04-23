@@ -19,7 +19,6 @@ The purpose is to quantify the intrinsic gene diversity (using various metrics) 
 
 If you want to get input data by yourselves :
 
-- [samtools](https://github.com/samtools/samtools)
 - [AGAT](https://github.com/NBISweden/AGAT)
 
 To compute GO semantic similarity :
