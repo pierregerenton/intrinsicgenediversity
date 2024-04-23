@@ -116,7 +116,10 @@ python3 src/intragene_isoform_diversity.py -i data/human_input.tsv -g ~/Software
 - `-g` : path of GOGO directory \[MANDATORY\]
 - `-o` : name of the output file \[MANDATORY\]
 
-
+Input should have 3 column :
+- Gene ID
+- Transcript ID
+- List of GO term ID separated by ';'
 
 Two files are generated :
 - `output.data.tsv` : measurement for each gene
