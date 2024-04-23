@@ -39,6 +39,11 @@ We suggest you to uncheck **Remove redundant filter** (cf [`../src/choice_go_set
 
 ## Convert Pannzer output as accepted input
 
+Run :
+
+```sh
+python3 src/convert_pannzer_output_to_input.py -p data/[human/mouse]_pannzer.out -o data/[human/mouse]_input.tsv
+```
 
 
 <br/>
