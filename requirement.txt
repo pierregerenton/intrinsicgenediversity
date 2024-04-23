@@ -1,0 +1,3 @@
+networkx==3.2.1
+obonet==1.0.0
+pandas==1.4.4
