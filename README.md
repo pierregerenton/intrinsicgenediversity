@@ -57,7 +57,7 @@ $$ I_i = \{ T_{i1}, T_{i2}, \ldots, T_{im_i} \} $$
 $$n_{isoform} = n = |G|$$
 
 ***Standard deviation of the number of GO term***
-$$\sigma_{m_i} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}{(m_i-\bar{m_i} )^2}}$$
+$$\sigma_{m_i} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}{(m-\bar{m_i} )^2}}$$
 
 ***Redundancy metric***\
 This metrics was designed to have an idea of the number of times a GO term appear in the genes.
