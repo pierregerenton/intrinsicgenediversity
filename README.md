@@ -143,7 +143,7 @@ This app use the implemented filter features for datatable. To filter a `int` co
 To compute Jaccard Index between isoforms for each gene, run :
 
 ```sh
-python3 src/gene_intrinsic_jaccard_index.py -i data/human_input.tsv -o res/human.gene_intrinsic_jaccard_index
+python3 src/gene_intrinsic_jaccard_index.py -i data/mouse_input.tsv -o res/mouse.gene_intrinsic_jaccard_index
 ```
 
 - `-i` : path of the input file (from a multiple-isoform annotation) \[MANDATORY\]
