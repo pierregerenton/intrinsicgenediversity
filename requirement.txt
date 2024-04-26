@@ -1,3 +1,10 @@
+dash==2.16.1
+dash-core-components==2.0.0
+dash-html-components==2.0.0
+dash-table==5.0.0
+matplotlib==3.8.2
+matplotlib-inline==0.1.6
 networkx==3.2.1
 obonet==1.0.0
 pandas==1.4.4
+seaborn==0.13.2
