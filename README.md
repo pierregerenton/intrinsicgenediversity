@@ -57,7 +57,7 @@ $$ I_i = \{ T_{i1}, T_{i2}, \ldots, T_{im_i} \} $$
 $$n_{isoform} = n = |G|$$
 
 ***Standard deviation of the number of GO term***
-$$\sigma_{m_i} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}{(m-\bar{m_i} )^2}}$$
+$$\sigma_{m} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}{(m_i-\bar{m} )^2}}$$
 
 ***Redundancy metric***\
 This metrics was designed to have an idea of the number of times a GO term appear in the genes.
@@ -116,7 +116,7 @@ python3 src/intragene_isoform_diversity.py -i data/human_input.tsv -g ~/Software
 - `-g` : path of GOGO directory \[MANDATORY\]
 - `-o` : name of the output file \[MANDATORY\]
 
-Input should have 3 column :
+Input should have 3 columns :
 - Gene ID
 - Transcript ID
 - List of GO term ID separated by ';'
@@ -137,3 +137,23 @@ python3 src/intragene_isoform_diversity_interactive.py -d res/human.intragene_is
 - `-d` : prefix path to the data produced by the scripts `intragene_isoform_diversity` (do not write the `.data.tsv` and `.summary.tsv`) \[MANDATORY\]
 
 This app use the implemented filter features for datatable. To filter a `int` column, you can use `<` or `>` before a number of get all row where the value in inferior/superior to your threshold in the current columns. 
+
+### Compute Jaccard Index between isoforms for each gene
+
+To compute Jaccard Index between isoforms for each gene, run :
+
+```sh
+python3 src/gene_intrinsic_jaccard_index.py -i data/human_input.tsv -o res/human.gene_intrinsic_jaccard_index
+```
+
+- `-i` : path of the input file (from a multiple-isoform annotation) \[MANDATORY\]
+- `-o` : name of the output file \[MANDATORY\]
+
+Input should have 3 columns :
+- Gene ID
+- Transcript ID
+- List of GO term ID separated by ';'
+
+The output will have 2 columns :
+- Gene ID
+- Jaccard Index (1 if the gene has 1 isoform)

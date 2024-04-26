@@ -14,7 +14,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     '-i', '--input',
     type=str, required=True,
-    help='Reference multiple isoform annotation'
+    help='Correctly formatted input'
 )
 
 parser.add_argument(
