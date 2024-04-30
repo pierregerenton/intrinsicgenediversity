@@ -51,9 +51,13 @@ If there is 1 isoform, the redudancy metric is set to $1$.
 Let $O$ be the set of all $n_o$ unique GO terms defined as :
 $$O = \bigcup_{i=1}^n I_i = \{ T_{1}, T_{2}, \ldots, T_{n_o} \}$$
 Let $count(T_i)$ the number of isoform where $T_i$ is present.
-$$rdd(T_i) = \frac{1}{n-1} \sum_{i=1}^ {n_o}(count(T_i)-1)$$
 
-We then return the mean $\overline{rdd}$.
+$$rdd(T_i) = \frac{1}{n-1} (count(T_i)-1)$$
+
+We then return the mean $\overline{rdd_T}$.
+
+Else, the formula can be simplify as :
+$$rdd(G) = \overline{rdd_T} =  \frac{1}{n_o(n-1)} \sum_{i=1}^ {n_o}(count(T_i)-1)$$
 
  <br/> 
 

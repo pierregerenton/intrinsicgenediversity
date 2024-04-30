@@ -118,6 +118,13 @@ class Gene:
         """Return the number of isoforms of the gene."""
         return len(self.transcripts)
     
+    def is_an_isoform_without_go(self) -> bool:
+        """Return True if at least one isoform have no GO term, else False"""
+        for transcript in self.transcripts.values():
+            if transcript.number_of_go_terms() == 0:
+                return True
+        return False
+    
     def stdev_number_of_go_by_isoform(self) -> float:
         """Return the POPULATION sd of the number of GO term
         by isoform."""
