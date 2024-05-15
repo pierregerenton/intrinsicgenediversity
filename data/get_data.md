@@ -13,6 +13,13 @@ Gencode assembly and annotation have been chosen. Data are available [here](http
     - [Genome](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M34/GRCm39.genome.fa.gz) 
     - [Gene annotation](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M34/gencode.vM34.annotation.gff3.gz)
 
+## Fly (*Drosophila melanogaster*) genome and annotation
+
+Drosophila have also been chosen for orthologs analysis. Data are available [here](https://www.ensembl.org/Drosophila_melanogaster/Info/Index) :
+
+- Ensembl release 111 :
+    - [Genome](https://ftp.ensembl.org/pub/release-112/fasta/drosophila_melanogaster/dna/Drosophila_melanogaster.BDGP6.46.dna.toplevel.fa.gz)
+    - [Gene annotation](https://ftp.ensembl.org/pub/release-112/gff3/drosophila_melanogaster/Drosophila_melanogaster.BDGP6.46.111.gff3.gz)
 
 ## Keeping protein-coding features, no readthrough gene and no redundant transcript
 
@@ -21,6 +28,8 @@ To remove non protein-coding features, readthrough gene and redundant transcript
 ```sh
 ./src/python3 src/extract_protein_coding_features_from_gff.py -i data/[human/mouse].gff3 -o data/[human/mouse].protein_coding.no_readthrough.no_redundant_transcript.gff3 
 ```
+
+As *Drosophila melanogaster* is not formatted like Gencode annotation, we propose `./src/extract_features_for_drosophila.ipynb` as an alternative.
 
 ## Extracting proteome
 
