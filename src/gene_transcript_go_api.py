@@ -7,7 +7,7 @@ import networkx
 from copy import deepcopy
 from random import shuffle
 from itertools import combinations
-from statistics import pstdev
+from statistics import pstdev, mean
 
 
 class Annotation:
@@ -98,6 +98,9 @@ class Gene:
         for transcript in transcripts:
             self.add_transcript(transcript)
 
+    def set_gene_id(self, id : int) -> None:
+        self.id = id
+
     # Getters
             
     def get_go_term_id(self, threesold=0) -> list[str]:
@@ -117,6 +120,14 @@ class Gene:
     def number_of_isoforms(self) -> int:
         """Return the number of isoforms of the gene."""
         return len(self.transcripts)
+
+    def mean_isoforms_length(self) -> float:
+        """Return the mean of the length of isoforms"""
+        lengths : list[int] = []
+        for transcript in self.transcripts.values():
+            lengths.append(transcript.sequence_length())
+        return mean(lengths)
+
     
     def is_an_isoform_without_go(self) -> bool:
         """Return True if at least one isoform have no GO term, else False"""
@@ -291,6 +302,9 @@ class Transcript:
         
     def number_of_go_terms(self) -> int:
         return len(self.gos)
+    
+    def sequence_length(self) -> int:
+        return len(self.seq)
 
 
 class Feature:
@@ -355,7 +369,7 @@ def parse_input(path, name = 'undefined_name'):
     with open(path) as file:
         for line in file:
             line = line.split('\t')
-            gene_id = line[0]
+            gene_id = line[0].strip('gene:')
             transcript_id = line[1]
             gos = line[2].strip().split(';')
             if gos == ['']:
@@ -369,6 +383,68 @@ def parse_input(path, name = 'undefined_name'):
 
     return annotation
 
+def parse_pannzer_annotation(path, name = 'undefined_name'):
+    """
+    Return an Annotation object from a PANZZER output
+    """
+    annotation = Annotation(name)
+    with open(path) as file:
+        for line in file:
+            line = line.strip().split('\t')
+            match line[1]:  # line[1] is type of line
+                case "original_DE":
+                    # get gene info from sequence description
+                    sequence_description = line[5].split(' ')
+                    gene_id = sequence_description[0].split('=')[1].split('.')[0]
+                    chr = sequence_description[1].split('=')[1]
+
+                    # creating gene and adding him to the annotation if not present
+                    if gene_id not in annotation.genes:
+                        gene = Gene(gene_id, chr)
+                        annotation.add_gene(gene)
+
+                    # creating current transcript
+                    transcript_id = line[0]
+                    transcript = Transcript(transcript_id)
+                    annotation.add_transcript(gene_id, transcript)
+                case "qseq":
+                    # sequence available
+                    transcript.set_seq(line[-1])
+                case "DE":
+                    # prediction of the description of the transcript
+                    transcript.set_desc(line[-1], line[3])
+                case "BP_ARGOT":
+                    id = 'GO:' + line[-2]
+                    desc = line[-1]
+                    ppv = float(line[-3])
+                    feature = GO(id, desc= desc, ppv= ppv, namespace= 'BP')
+                    transcript.add_go(feature)
+                case "CC_ARGOT":
+                    id = 'GO:' + line[-2]
+                    desc = line[-1]
+                    ppv = float(line[-3])
+                    feature = GO(id, desc=desc, ppv=ppv, namespace='CC')
+                    transcript.add_go(feature)
+                case "MF_ARGOT":
+                    id = 'GO:' + line[-2]
+                    desc = line[-1]
+                    ppv = float(line[-3])
+                    feature = GO(id, desc=desc, ppv=ppv, namespace='MF')
+                    transcript.add_go(feature)
+                case "EC_ARGOT":
+                    id = line[-2]
+                    desc = line[-1]
+                    ppv = float(line[-3])
+                    feature = EC(id, desc, ppv)
+                    transcript.add_ec(feature) 
+                case "KEGG_ARGOT":  
+                    id = line[-2]
+                    desc = line[-1]
+                    ppv = float(line[-3])
+                    feature = KEGG(id, desc, ppv)
+                    transcript.add_kegg(feature)
+
+    return annotation
 
 def make_best_single_isoform_annotation(annotation : Annotation):
     """Return a single-isoform annotation from a multiple one by taking, for each gene,
