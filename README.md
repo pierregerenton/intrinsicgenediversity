@@ -161,3 +161,13 @@ Input should have 3 columns :
 The output will have 2 columns :
 - Gene ID
 - Jaccard Index (1 if the gene has 1 isoform)
+
+## Explore functional convergeance of gene
+
+This is a really experimental part. We want to see if annotating new isoforms for a gene will brings new function (GO term) or if we already explore everything.
+
+You can explore our WIP gene convergeance with a dash app.
+
+```sh
+python3 src/dash_convergence_graph.py -d data/human_input.tsv
+```
