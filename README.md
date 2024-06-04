@@ -180,6 +180,10 @@ You can find :
 
 To understand this diversity, some preliminary results have been made.
 
+### Comparing diversity between orthologues genes
+
+You can observed the conservation of diversity between orthologues genes in `src/orthologue_analysis.ipynb` and `src/orthologue_analysis_no_empty_transcript.ipynb`.
+
 ### Explore functional convergeance of gene
 
 This is a really experimental part. We want to see if annotating new isoforms for a gene will brings new function (GO term) or if we already explore everything. This analysis was abandonned (result not relevant).
