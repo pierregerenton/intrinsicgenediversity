@@ -14,6 +14,7 @@ The purpose is to quantify the intrinsic gene diversity (using various metrics) 
     - [Evaluate isoforms diversity for each gene](#evaluate-isoforms-diversity-for-each-gene)
         -[Exploring the results interactively with a Dash app](#exploring-the-results-interactively-with-a-dash-app)
     - [Compute Jaccard Index between isoforms for each gene](#compute-jaccard-index-between-isoforms-for-each-gene)
+- [Notebook used to produce graph](#notebook-used-to-produce-graph)
 - [Experimental analysis](#experimental-analysis)
     - [Explore functional convergeance of gene](#explore-functional-convergeance-of-gene)
 

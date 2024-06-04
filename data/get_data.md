@@ -65,6 +65,10 @@ If you think that you GO predictor isn't perfect and predict 0 GO annotation to 
 cat human_input.tsv | awk '($3!="")' > human_input.no_empty_transcript.tsv
 ```
 
+### Use expressed transcript
+
+Using a synthetic model of cell differenciation in human, the expression of each transcript was quantified at different time point. We cannot make the original data available but we keep transcript with a CPM > 1 at the first (start) and last t(end) timepoint, then filter the output to keep only transcript prediction for these genes.  These data can be use to explore new thing. There are in file `human_input.[start/end]_expressed.tsv`.
+
 <br/>
 ----------------------------
 
