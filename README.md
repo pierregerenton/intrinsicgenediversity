@@ -173,8 +173,9 @@ The output will have 2 columns :
 Some notebook was used to produce graph and can be useful as support. There were push in this repository.
 
 You can find :
-    - `src/correlation_matrix_igd.ipynb` to produce a correlation matrix between all diversity metrics tested and produce graph to compare them all with a parametrable function.
-     - `src/correlation_matrix_igd_no_empty_transcript.ipynb` : same as before but with the data produced after the deletion of empty transcripts (transcripts without GO term predicted)
+
+- `src/correlation_matrix_igd.ipynb` to produce a correlation matrix between all diversity metrics tested and produce graph to compare them all with a parametrable function.
+- `src/correlation_matrix_igd_no_empty_transcript.ipynb` : same as before but with the data produced after the deletion of empty transcripts (transcripts without GO term predicted)
 
 ## Experimental analysis
 
