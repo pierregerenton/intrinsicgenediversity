@@ -16,6 +16,7 @@ The purpose is to quantify the intrinsic gene diversity (using various metrics) 
     - [Compute Jaccard Index between isoforms for each gene](#compute-jaccard-index-between-isoforms-for-each-gene)
 - [Notebook used to produce graph](#notebook-used-to-produce-graph)
 - [Experimental analysis](#experimental-analysis)
+    - [Comparing diversity between orthologues genes](#comparing-diversity-between-orthologues-genes)
     - [Explore functional convergeance of gene](#explore-functional-convergeance-of-gene)
 
 
@@ -174,8 +175,8 @@ Some notebook was used to produce graph and can be useful as support. There were
 
 You can find :
 
-- `src/correlation_matrix_igd.ipynb` to produce a correlation matrix between all diversity metrics tested and produce graph to compare them all with a parametrable function.
-- `src/correlation_matrix_igd_no_empty_transcript.ipynb` : same as before but with the data produced after the deletion of empty transcripts (transcripts without GO term predicted)
+- [`src/correlation_matrix_igd.ipynb`](src/correlation_matrix_igd.ipynb) to produce a correlation matrix between all diversity metrics tested and produce graph to compare them all with a parametrable function.
+- [`src/correlation_matrix_igd_no_empty_transcript.ipynb`](src/correlation_matrix_igd_no_empty_transcript.ipynb) : same as before but with the data produced after the deletion of empty transcripts (transcripts without GO term predicted)
 
 ## Experimental analysis
 
@@ -183,13 +184,18 @@ To understand this diversity, some preliminary results have been made.
 
 ### Comparing diversity between orthologues genes
 
-You can observed the conservation of diversity between orthologues genes in `src/orthologue_analysis.ipynb` and `src/orthologue_analysis_no_empty_transcript.ipynb`.
+You can observed the conservation of diversity between orthologues genes in [`src/orthologue_analysis.ipynb`](src/orthologue_analysis.ipynb) and [`src/orthologue_analysis_no_empty_transcript.ipynb`](src/orthologue_analysis_no_empty_transcript.ipynb).
+
+### Additional graph
+
+Comparisons of the diversity VS the number of exons or the protein length. Visualization of the repartition of the diversity.
+Available in [`src/additional_graph.ipynb`](src/additional_graph.ipynb).
 
 ### Explore functional convergeance of gene
 
 This is a really experimental part. We want to see if annotating new isoforms for a gene will brings new function (GO term) or if we already explore everything. This analysis was abandonned (result not relevant).
 
-You can explore our gene convergeance attempt with a notebook in `src/convergence_graph.ipynb`.
+You can explore our gene convergeance attempt with a notebook in [`src/convergence_graph.ipynb`](src/convergence_graph.ipynb).
 
 You can explore our gene convergeance data with a dash app.
 
