@@ -55,6 +55,16 @@ python3 src/convert_pannzer_output_to_input.py -p data/[human/mouse]_pannzer.out
 ```
 
 
+## Alternative input
+
+### Remove transcript without GO annotation
+
+If you think that you GO predictor isn't perfect and predict 0 GO annotation to transcript that have some, you can try to compute the diversity without those transcript.
+
+```sh
+cat human_input.tsv | awk '($3!="")' > human_input.no_empty_transcript.tsv
+```
+
 <br/>
 ----------------------------
 
