@@ -14,8 +14,8 @@ The purpose is to quantify the intrinsic gene diversity (using various metrics) 
     - [Evaluate isoforms diversity for each gene](#evaluate-isoforms-diversity-for-each-gene)
         -[Exploring the results interactively with a Dash app](#exploring-the-results-interactively-with-a-dash-app)
     - [Compute Jaccard Index between isoforms for each gene](#compute-jaccard-index-between-isoforms-for-each-gene)
-
-- [Explore functional convergeance of gene](#explore-functional-convergeance-of-gene)
+- [Experimental analysis](#experimental-analysis)
+    - [Explore functional convergeance of gene](#explore-functional-convergeance-of-gene)
 
 
 ## Requirement
@@ -41,6 +41,7 @@ pip install -r requierement.txt
 
 - [`data`](data) : data location with [`data/get_data.md`](./data/get_data.md) with information to retreive them
 - [`src`](src) : scripts (cf below)
+- [`res`](res) : output files
 
 ## Metrics
 
@@ -173,7 +174,11 @@ Some notebook was used to produce graph and can be useful as support. There were
 You can find :
     - `src/correlation_matrix_igd.ipynb` to produce a correlation matrix between all diversity metrics tested and produce graph to compare them all with a parametrable function.
 
-## Explore functional convergeance of gene
+## Experimental analysis
+
+To understand this diversity, some preliminary results have been made.
+
+### Explore functional convergeance of gene
 
 This is a really experimental part. We want to see if annotating new isoforms for a gene will brings new function (GO term) or if we already explore everything.
 
