@@ -17,6 +17,7 @@ The purpose is to quantify the intrinsic gene diversity (using various metrics) 
 - [Notebook used to produce graph](#notebook-used-to-produce-graph)
 - [Experimental analysis](#experimental-analysis)
     - [Comparing diversity between orthologues genes](#comparing-diversity-between-orthologues-genes)
+    - [Additional graph](#additional-graph)
     - [Explore functional convergeance of gene](#explore-functional-convergeance-of-gene)
 
 
@@ -202,3 +203,10 @@ You can explore our gene convergeance data with a dash app.
 ```sh
 python3 src/dash_convergence_graph.py -d data/human_input.tsv
 ```
+
+
+### Gene entropy and diversity
+
+[Recount](https://rna.recount.bio/) is a database that 'count' the number of support for each exon, exon-exon junction and gene in *Homo sapiens* across different samples of differents projects. We cannot make the data available, but we have a 'recount' value for each exon that is the support of this exons. For each transcript, we consider that his support is the support of the exon with the lower recount value. Then, the 'entropy' of the gene is computed to estimated if the repartition of each transcript is equal. We then compare the entropy to the diversity.
+
+Graph are available through two notebook : [`src/entropy_analysis.ipnyb`](src/entropy_analysis.ipynb) and [`src/entropy_analysis_no_empty_transcript.ipynb`](src/entropy_analysis_no_empty_transcript.ipynb)

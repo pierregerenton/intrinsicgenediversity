@@ -93,6 +93,10 @@ Then, go to `Attributes` (in the left menu). We will select useful attributes.
 
 Now, we should sudmit our request. Click on `Results` above the left menu. You should be able to download your results now.
 
+## Recount values
+
+[Recount](https://rna.recount.bio/) is a database that 'count' the number of support for each exon, exon-exon junction and gene in *Homo sapiens* across different samples of differents projects. We cannot make the data available, but we have a 'recount' value for each exon that is the support of this exons. For each transcript, we consider that his support is the support of the exon with the lower recount value. Then, the 'entropy' of the gene is computed to estimated if the repartition of each transcript is equal. We then compare the entropy to the diversity.
+
 <br/>
 ----------------------------
 
