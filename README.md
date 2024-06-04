@@ -182,9 +182,11 @@ To understand this diversity, some preliminary results have been made.
 
 ### Explore functional convergeance of gene
 
-This is a really experimental part. We want to see if annotating new isoforms for a gene will brings new function (GO term) or if we already explore everything.
+This is a really experimental part. We want to see if annotating new isoforms for a gene will brings new function (GO term) or if we already explore everything. This analysis was abandonned (result not relevant).
 
-You can explore our WIP gene convergeance with a dash app.
+You can explore our gene convergeance attempt with a notebook in `src/convergence_graph.ipynb`.
+
+You can explore our gene convergeance data with a dash app.
 
 ```sh
 python3 src/dash_convergence_graph.py -d data/human_input.tsv
