@@ -69,6 +69,30 @@ cat human_input.tsv | awk '($3!="")' > human_input.no_empty_transcript.tsv
 
 Using a synthetic model of cell differenciation in human, the expression of each transcript was quantified at different time point. We cannot make the original data available but we keep transcript with a CPM > 1 at the first (start) and last t(end) timepoint, then filter the output to keep only transcript prediction for these genes.  These data can be use to explore new thing. There are in file `human_input.[start/end]_expressed.tsv`.
 
+
+## Get orthologs from Ensembl
+
+To compare genes between taxa, being able to get a list of orthologs is crucial. [Ensembl Biomart](https://www.ensembl.org/biomart/martview/c98efc21018805f8bab9d1633e6ab300) is a tool that let us download Ensembl database data with multiple filter. It is possible to download orthologs. Here is a small tutorial to explain how to get human-mouse orthologs. You should adapt this to your species.
+
+- `-CHOOSE DATABASE-` -> select `Ensembl Genes 112` (the current last release of ensembl is 112)
+- `-CHOOSE DATASET-` -> select `Human genes (GRCh38.p14)` (again, it depends of the version of the assembly)
+
+On the left, a menu should appear.
+
+- Click `Filters`
+- Expend `MULTI SPECIES COMPARISONS`
+- Check `Homologues filters`
+- In the drop-down menu choose `Orthologous Mouse Genes` (let the radio buttons on `Only`)
+
+Then, go to `Attributes` (in the left menu). We will select useful attributes.
+
+- Choose `Homologues (Max select 6 orthologues)` for the RadioButtons widget
+- Expend `GENE` and check all informations you want about the human gene (advice : check `Gene stable ID`)
+- Expend `ORTHOLOGUES [K-O]` (we are looking at **M**ouse orthologues, so we expend the corresponding categories. Please note that the classification is by common name and not scientific case (except exception). If you do not find the species you are looking form, try to look to the other name.)
+- Find `Mouse Orthologues` and check what you want. (advice : `Mouse gene stable ID` and `Mouse homology type`. We need the last one to extract only one-to-one orthologs.)
+
+Now, we should sudmit our request. Click on `Results` above the left menu. You should be able to download your results now.
+
 <br/>
 ----------------------------
 
