@@ -20,6 +20,7 @@ The purpose is to quantify the intrinsic gene diversity (using various metrics) 
     - [Additional graph](#additional-graph)
     - [Explore functional convergeance of gene](#explore-functional-convergeance-of-gene)
     - [Gene entropy and diversity](#gene-entropy-and-diversity)
+    - [Gene expression and diversity](#gene-expression-and-diversity)
 
 
 ## Requirement
