@@ -2,9 +2,9 @@
 
 The purpose is to quantify the intrinsic gene diversity (using various metrics) and understand everything that this information can bring to us.
 
-## Summary
+## Table of content
 
-- [Summary](#summary)
+- [Table of content](#table-of-content)
 - [Requirement](#requirement)
 - [Organization of the repo](#organization-of-the-repo)
 - [Metrics](#metrics)
