@@ -1,9 +1,13 @@
 import argparse
 
+__author__ = "Gérenton Pierre"
+__credits__ = ["Gérenton Pierre", "Fabio Zanarello", "Roderic Guigó i Serra"]
+__license__ = "CC0 1.0 Universal"
+
 parser = argparse.ArgumentParser(
                     prog='convert_pannzer_output_to_input',
                     description='Convert pannzer output to acceptable input',
-                    epilog='For more information, contact pierre.gerenton@crg.eu')
+                    epilog='For more information, contact fabio.zanarello@crg.eu')
 
 parser.add_argument(
     '-p', '--pannzer',

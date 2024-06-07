@@ -2,11 +2,14 @@ import pandas as pd
 import argparse
 from dash import Dash, html, dash_table, dcc, Input, Output, callback
 
+__author__ = "Gérenton Pierre"
+__credits__ = ["Gérenton Pierre", "Fabio Zanarello", "Roderic Guigó i Serra"]
+__license__ = "CC0 1.0 Universal"
 
 parser = argparse.ArgumentParser(
                     prog='visualize',
                     description='visualize',
-                    epilog='For more information, contact pierre.gerenton@crg.eu')
+                    epilog='For more information, contact fabio.zanarello@crg.eu')
 
 
 parser.add_argument(

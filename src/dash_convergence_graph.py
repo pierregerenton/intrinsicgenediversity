@@ -10,10 +10,14 @@ from dash import Dash, html, dcc, Input, Output, callback
 import dash_daq as daq
 import plotly.graph_objects as go
 
+__author__ = "Gérenton Pierre"
+__credits__ = ["Gérenton Pierre", "Fabio Zanarello", "Roderic Guigó i Serra"]
+__license__ = "CC0 1.0 Universal"
+
 parser = argparse.ArgumentParser(
                     prog='convergence',
                     description='App to easily test convergence for random gene',
-                    epilog='For more information, contact pierre.gerenton@crg.eu')
+                    epilog='For more information, contact fabio.zanarello@crg.eu')
 
 
 parser.add_argument(

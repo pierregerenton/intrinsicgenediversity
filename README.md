@@ -2,6 +2,8 @@
 
 The purpose is to quantify the intrinsic gene diversity (using various metrics) and understand everything that this information can bring to us.
 
+If you have questions, you can contact `fabio.zanarello@crg.eu`.
+
 ## Table of content
 
 - [Table of content](#table-of-content)
